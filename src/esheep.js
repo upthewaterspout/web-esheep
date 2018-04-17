@@ -53,7 +53,7 @@
 const VERSION = '0.7.1';                // web eSheep version
 const ACTIVATE_DEBUG = false;         // show log on console
 const DEFAULT_XML = "http://esheep.petrucci.ch/script/animation.php"; // default XML animation
-const COLLISION_WITH = ["div", "hr"]; // elements on page to detect for collisions
+const COLLISION_WITH = ["div", "hr", "rect"]; // elements on page to detect for collisions
 
   /*
    * Old style, don't use it.
