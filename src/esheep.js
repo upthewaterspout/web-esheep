@@ -549,7 +549,7 @@ class eSheep
           if(x > rect.left && x < rect.right - this.imageW)
           {
             var style = window.getComputedStyle(els[i]);
-            if((style.borderTopStyle != "" && style.borderTopStyle != "none") && style.display != "none")
+            if(((style.borderTopStyle != "" && style.borderTopStyle != "none") && style.display != "none") || els[i].tagName == 'RECT')
             {
               return els[i];
             }
