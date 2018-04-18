@@ -53,7 +53,7 @@
 const VERSION = '0.7.1';                // web eSheep version
 const ACTIVATE_DEBUG = false;         // show log on console
 const DEFAULT_XML = "http://esheep.petrucci.ch/script/animation.php"; // default XML animation
-const COLLISION_WITH = ["div", "hr", "rect"]; // elements on page to detect for collisions
+const COLLISION_WITH = ["div", "hr"]; // elements on page to detect for collisions
 
   /*
    * Old style, don't use it.
@@ -549,7 +549,7 @@ class eSheep
           if(x > rect.left && x < rect.right - this.imageW)
           {
             var style = window.getComputedStyle(els[i]);
-            if(((style.borderTopStyle != "" && style.borderTopStyle != "none") && style.display != "none") || els[i].tagName == 'RECT')
+            if((style.borderTopStyle != "" && style.borderTopStyle != "none") && style.display != "none")
             {
               return els[i];
             }
@@ -557,6 +557,20 @@ class eSheep
         }
       }
     }
+    var els = document.body.getElementsByClassName('node job succeeded');
+
+      for(var i=0;i<els.length;i++)
+      {
+        rect = els[i].getBoundingClientRect();
+
+        if(y > rect.top - 2 && y < rect.top + margin)
+        {
+          if(x > rect.left && x < rect.right - this.imageW)
+          {
+              return els[i];
+          }
+        }
+      }
     return false;
   }
 
